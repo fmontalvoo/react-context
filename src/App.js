@@ -32,7 +32,7 @@ function App() {
          * informacion al contexto usamos el prop value.
          */
       }
-      <Context.Provider value={theme}>
+      <Context.Provider value={{ themes, theme, setState }}>
         <button onClick={() => setState(themes.light)}>Modo claro</button>
         <button onClick={() => setState(themes.dark)}>Modo oscuro</button>
         <br />
