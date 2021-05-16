@@ -1,23 +1,36 @@
-import logo from './logo.svg';
+import React from 'react';
+
 import './App.css';
+
+import Button from './Button';
+
+// Crea el contexto para la aplicacion.
+export const Context = React.createContext();
+
+const themes = {
+  'dark': {
+    backgroundColor: 'black',
+    color: 'white'
+  },
+  'light': {
+    backgroundColor: 'white',
+    color: 'black'
+  }
+}
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {
+        /**
+         * Todos los hijos del componente Context van a compartir la
+         * informacion que este asignada en el contexto. Para asignar
+         * informacion al contexto usamos el prop value.
+         */
+      }
+      <Context.Provider value={themes.dark}>
+        <Button />
+      </Context.Provider>
     </div>
   );
 }
