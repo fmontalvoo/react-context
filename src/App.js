@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import './App.css';
 
 import Button from './Button';
+import Paragraph from './Paragraph';
 
 // Crea el contexto para la aplicacion.
 export const Context = React.createContext();
@@ -19,6 +20,9 @@ const themes = {
 }
 
 function App() {
+
+  const [theme, setState] = useState(themes.dark);
+
   return (
     <div>
       {
@@ -28,8 +32,14 @@ function App() {
          * informacion al contexto usamos el prop value.
          */
       }
-      <Context.Provider value={themes.dark}>
+      <Context.Provider value={theme}>
+        <button onClick={() => setState(themes.light)}>Modo claro</button>
+        <button onClick={() => setState(themes.dark)}>Modo oscuro</button>
+        <br />
+        <br />
         <Button />
+        <br />
+        <Paragraph />
       </Context.Provider>
     </div>
   );
